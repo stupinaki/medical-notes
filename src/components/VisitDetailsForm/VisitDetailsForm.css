@@ -1,0 +1,23 @@
+.visitDetailsForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%;
+    background-color: ghostwhite;
+}
+
+.visitDetailsForm__saveButton {
+    background-color: rgb(25, 118, 210);
+    border-radius: 2px;
+    border: none;
+    padding: 8px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12);
+}
+.visitDetailsForm__input{
+    padding: 8px 4px;
+    margin-bottom: 12px;
+}
