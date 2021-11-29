@@ -1,27 +1,18 @@
-import useDoctorsData from "../../hooks/useDoctorsData";
 import {Link, useNavigate} from "react-router-dom";
 import {AppRoutes} from "../App/constants/routes";
 import {Fab} from "@mui/material";
 import React from "react";
 import {DoctorItem} from "./DoctorItem";
 import './Doctors.css'
+import {useDoctorsContext} from "../../contexts/DoctorsContext";
 
-export default function Doctors({ doctors }) {
+export default function Doctors() {
+    const {doctors, deleteDoctor} = useDoctorsContext();
     const navigate = useNavigate();
-    // todo
-    const {deleteDoctor} = useDoctorsData();
-    /**
-     * функция для замены id в адресе страницы на id нужного врача
-     * @type {function(*=): *}
-     */
     const onClickHandle = React.useCallback((id) =>
             navigate(AppRoutes.DOCTOR.replace(':id', id)),
         [navigate]
     );
-    const onDeleteHandle = React.useCallback((id) => {
-        const newDoctors = doctors.filter(doctor => doctor.id !== id);
-        deleteDoctor(newDoctors);
-    }, [doctors, deleteDoctor])
 
     return (
         <div className="Doctors">
@@ -36,7 +27,7 @@ export default function Doctors({ doctors }) {
                             key={doctor.value}
                             onClick={onClickHandle}
                             doctor={doctor}
-                            onDelete={onDeleteHandle}
+                            onDelete={deleteDoctor}
                         />
                     ))}
                 </div>

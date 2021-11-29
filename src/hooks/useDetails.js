@@ -1,5 +1,19 @@
 import React from "react";
 
+
+function delay(fn, ms) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            try {
+                const result = fn();
+                resolve(result);
+            } catch (e) {
+                reject(e);
+            }
+        }, ms);
+    })
+}
+
 export default function useDetails() {
     const [loading, setLoading] = React.useState(true);
     const [details, setDetails] = React.useState({});
@@ -21,13 +35,7 @@ export default function useDetails() {
 
     React.useEffect( () => {
         const fn = async () => {
-            // todo вынести в функцию которая принимает функцию резолв и таймаут, ЗАЧЕМ?
-            const promise = new Promise(resolve => {
-                setTimeout(() => resolve(), 1000);
-            });
-            await promise;
-
-            getDetails();
+            await delay(getDetails, 1000)
             window.addEventListener('storage', getDetails)
         }
         fn();

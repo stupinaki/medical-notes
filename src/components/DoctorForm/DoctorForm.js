@@ -6,6 +6,7 @@ import './DoctorForm.css';
 import {Fab} from "@mui/material";
 import useDoctorsData from "../../hooks/useDoctorsData";
 import {useUpdateDoctor} from "../../hooks/useUpdateDoctor";
+import {useDoctorsContext} from "../../contexts/DoctorsContext";
 
 // function getDoctorsFromLS() {
 //     const doctorsStr = localStorage.getItem(LocalStorage.DOCTORS);
@@ -27,9 +28,9 @@ function validateDoctorForm(value, doctors) {
     return '';
 }
 
-export default function DoctorForm({ doctors }) {
+export default function DoctorForm() {
+    const { doctors, updateDoctor } =useDoctorsContext();
     const navigate = useNavigate();
-    const updateDoctor = useUpdateDoctor();
     const [message, setMessage] = React.useState('');
     const [value, setValue] = React.useState('');
     const handleChange = React.useCallback((e) => {
@@ -44,9 +45,8 @@ export default function DoctorForm({ doctors }) {
             setMessage(message);
             return;
         }
-        debugger;
         updateDoctor({ value });
-        // navigate(AppRoutes.DOCTORS);
+        navigate(AppRoutes.DOCTORS);
         }, [value, navigate, updateDoctor, doctors]);
     return (
         <div className="doctorForm">

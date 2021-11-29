@@ -1,9 +1,26 @@
+
+
 import React, {useCallback} from "react";
 import {LocalStorage} from "../components/App/constants/localStorage";
+
+
+function delay(fn, ms) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            try {
+                const result = fn();
+                resolve(result);
+            } catch (e) {
+                reject(e);
+            }
+        }, ms);
+    })
+}
 
 export default function useDoctorsData() {
     const [loading, setLoading] = React.useState(true);
     const [doctors, setDoctors] = React.useState([]);
+
     const getDoctors = React.useCallback(() => {
         const doctorsStr = localStorage.getItem(LocalStorage.DOCTORS);
         try {
@@ -13,6 +30,7 @@ export default function useDoctorsData() {
         }
         setLoading(false);
     }, []);
+
     const updateDoctor = useCallback(doctor => {
         setDoctors(doctors => {
             const otherDoctors = doctors.filter(d => d.id !== doctor.id);
@@ -22,10 +40,10 @@ export default function useDoctorsData() {
             }
             const result = [...otherDoctors, doctor];
             localStorage.setItem(LocalStorage.DOCTORS, JSON.stringify(result));
-            return [];
+            return result;
         });
-        setDoctors([]);
     }, []);
+
     const deleteDoctor = React.useCallback(id => {
         setDoctors(doctors => {
             const result = doctors.filter(d => d.id !== id);
@@ -36,13 +54,7 @@ export default function useDoctorsData() {
 
     React.useEffect(() => {
         const fn = async () => {
-            // todo вынести в функцию которая принимает функцию резолв и таймаут, ЗАЧЕМ?
-            const promise = new Promise(resolve => {
-                setTimeout(() => resolve(), 1000);
-            });
-            await promise;
-
-            getDoctors();
+            await delay(getDoctors,1000);
             window.addEventListener('storage', getDoctors)
         }
         fn();
@@ -56,6 +68,7 @@ export default function useDoctorsData() {
             doctors,
             loading,
             updateDoctor,
+            deleteDoctor,
             setDoctors
         }),
         [doctors, loading, updateDoctor]
