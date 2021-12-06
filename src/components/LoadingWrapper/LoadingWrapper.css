@@ -1,0 +1,26 @@
+
+.loading{
+    width: 50px;
+    height: 50px;
+    border: 10px solid darkgray;
+    border-top: 10px solid transparent;
+    border-radius: 50px;
+    animation: spin 1s linear infinite
+}
+@keyframes spin{
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+.loading__inside {
+    width: 40px;
+    height: 40px;
+    border: 8px solid rgb(25, 118, 210);
+    border-top: 8px solid transparent;
+    border-radius: 50px;
+    animation: spin1 1s linear infinite
+}
+@keyframes spin1{
+    from { transform: rotate(360deg); }
+    to   { transform: rotate(0deg); }
+}

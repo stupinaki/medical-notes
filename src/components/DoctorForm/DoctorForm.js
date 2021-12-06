@@ -5,7 +5,6 @@ import {AppRoutes} from "../App/constants/routes";
 import './DoctorForm.css';
 import {Fab} from "@mui/material";
 import useDoctorsData from "../../hooks/useDoctorsData";
-import {useUpdateDoctor} from "../../hooks/useUpdateDoctor";
 import {useDoctorsContext} from "../../contexts/DoctorsContext";
 
 // function getDoctorsFromLS() {

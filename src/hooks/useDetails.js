@@ -1,6 +1,6 @@
 import React from "react";
 
-
+//возможно удалить т.к. отдельно не будет деталей, они будут в массиве докторов
 function delay(fn, ms) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {

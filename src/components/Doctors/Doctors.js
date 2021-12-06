@@ -14,6 +14,8 @@ export default function Doctors() {
         [navigate]
     );
 
+    // todo
+    console.log(doctors)
     return (
         <div className="Doctors">
             <div className="Doctors__wrapper">

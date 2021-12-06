@@ -5,10 +5,12 @@ import {useNavigate, useParams} from "react-router-dom";
 import {AppRoutes} from "../App/constants/routes";
 import {LocalStorage} from "../App/constants/localStorage";
 import {useDoctorData} from "../../hooks/useDoctorData";
+import {Fab} from "@mui/material";
 
-export default function VisitDetailsForm({doctors}) {
+export default function VisitDetailsForm() {
     const { id } = useParams();
-    const doctor = useDoctorData(id, doctors);
+    const doctor = useDoctorData(); //объект с именем врача и его id
+    // console.log({doctor})
     const navigate = useNavigate();
 
     const [value, setValue] = useState({});
@@ -18,22 +20,20 @@ export default function VisitDetailsForm({doctors}) {
 
     const handleSubmit = React.useCallback((e) => {
         e.preventDefault();
-        /**
-         * объект где ключ -id врача, значение по ключу - массив с объектами,
-         * где элемент массива - объект с деталями посещения
-         */
+
         const detailsStr = localStorage.getItem(LocalStorage.DETAILS);
         const details = JSON.parse(detailsStr) || {};
         const doctorDetails = details[id] || [];
         const arrId = doctorDetails.map( detail => detail.id);
         const maxId = arrId.length === 0 ? -1 : Math.max(...arrId);
         const newDetail = {id: maxId + 1, ...value};
-        // закомментировано т.к. id идут не с 0 и увеличиваются в двое
-        // const maxId = doctorDetails.reduce((acc, detail) => acc + detail.id, 0);
         const result = {...details, [id]: [ ...doctorDetails, newDetail]};
+
 
         localStorage.setItem(LocalStorage.DETAILS, JSON.stringify(result));
         navigate(AppRoutes.DOCTOR.replace(':id', id));
+
+
     }, [navigate, value, id])
 
     return (
@@ -92,6 +92,9 @@ export default function VisitDetailsForm({doctors}) {
                     Сохранить
                 </button>
             </form>
+            <Fab  className='visitDetailsForm__backButton' color="primary">
+                🠔
+            </Fab>
         </div>
     )
 }

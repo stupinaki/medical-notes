@@ -15,7 +15,7 @@ export function useDoctorsContext() {
 export function DoctorsContextProvider({children}) {
     const doctorsData = useDoctorsData();
     const params = useParams();
-    console.log('DoctorsContextProvider', {doctorsData})
+    console.log('DoctorsContextProvider', {doctorsData, params})
 
     return (
         <DoctorsContext.Provider value={doctorsData}>

@@ -8,7 +8,7 @@ import {useDoctorData} from "../../hooks/useDoctorData";
 
 export default function SummaryCards() {
     const doctor = useDoctorData();
-    const doctorVisits = React.useMemo(() =>  doctor?.visits || [], [doctor]);
+    const doctorVisits = React.useMemo(() =>  doctor?.visit || [], [doctor]);
     const onDeleteHandle = React.useCallback(() => console.log('deleted!'), []);
     return (
         <div className='wrapper'>
