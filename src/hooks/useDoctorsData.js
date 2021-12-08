@@ -1,20 +1,7 @@
-
 import React, {useCallback} from "react";
 import {LocalStorage} from "../components/App/constants/localStorage";
+import delay from "../function/delay";
 
-
-function delay(fn, ms) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            try {
-                const result = fn();
-                resolve(result);
-            } catch (e) {
-                reject(e);
-            }
-        }, ms);
-    })
-}
 
 export default function useDoctorsData() {
     const [loading, setLoading] = React.useState(true);
@@ -53,7 +40,7 @@ export default function useDoctorsData() {
 
     React.useEffect(() => {
         const fn = async () => {
-            await delay(getDoctors,1000);
+            await delay(getDoctors, 1000);
             window.addEventListener('storage', getDoctors)
         }
         fn();
@@ -70,6 +57,6 @@ export default function useDoctorsData() {
             deleteDoctor,
             setDoctors
         }),
-        [doctors, loading, updateDoctor]
+        [doctors, loading, updateDoctor, deleteDoctor]
     );
 }

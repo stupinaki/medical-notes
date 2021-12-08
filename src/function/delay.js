@@ -1,5 +1,6 @@
 
-function delay(fn, ms) {
+
+export default function delay(fn, ms) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             try {

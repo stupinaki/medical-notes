@@ -1,14 +1,17 @@
 import './SummaryCards.css';
 import React from "react";
 import {Fab, } from "@mui/material";
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import {Card} from "./Card";
 import {AppRoutes} from "../App/constants/routes";
 import {useDoctorData} from "../../hooks/useDoctorData";
+import {useVisitsByDoctor} from "../../hooks/useVisit";
 
 export default function SummaryCards() {
+    const { id } = useParams();
+    const doctorVisits = useVisitsByDoctor(id);
     const doctor = useDoctorData();
-    const doctorVisits = React.useMemo(() =>  doctor?.visit || [], [doctor]);
+    //todo implement
     const onDeleteHandle = React.useCallback(() => console.log('deleted!'), []);
     return (
         <div className='wrapper'>
@@ -19,6 +22,7 @@ export default function SummaryCards() {
                 <div className= 'SummaryCards__cards'>
                     {doctorVisits.map(visit => (
                         <Card
+                            key={visit.id}
                             visit={visit}
                             onDelete={onDeleteHandle}
                         />

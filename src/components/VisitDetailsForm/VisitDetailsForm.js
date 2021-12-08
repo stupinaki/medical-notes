@@ -4,13 +4,10 @@ import './VisitDetailsForm.css';
 import {useNavigate, useParams} from "react-router-dom";
 import {AppRoutes} from "../App/constants/routes";
 import {LocalStorage} from "../App/constants/localStorage";
-import {useDoctorData} from "../../hooks/useDoctorData";
 import {Fab} from "@mui/material";
 
 export default function VisitDetailsForm() {
-    const { id } = useParams();
-    const doctor = useDoctorData(); //объект с именем врача и его id
-    // console.log({doctor})
+    const {id} = useParams();
     const navigate = useNavigate();
 
     const [value, setValue] = useState({});
@@ -24,10 +21,10 @@ export default function VisitDetailsForm() {
         const detailsStr = localStorage.getItem(LocalStorage.DETAILS);
         const details = JSON.parse(detailsStr) || {};
         const doctorDetails = details[id] || [];
-        const arrId = doctorDetails.map( detail => detail.id);
+        const arrId = doctorDetails.map(detail => detail.id);
         const maxId = arrId.length === 0 ? -1 : Math.max(...arrId);
         const newDetail = {id: maxId + 1, ...value};
-        const result = {...details, [id]: [ ...doctorDetails, newDetail]};
+        const result = {...details, [id]: [...doctorDetails, newDetail]};
 
 
         localStorage.setItem(LocalStorage.DETAILS, JSON.stringify(result));
@@ -92,7 +89,7 @@ export default function VisitDetailsForm() {
                     Сохранить
                 </button>
             </form>
-            <Fab  className='visitDetailsForm__backButton' color="primary">
+            <Fab className='visitDetailsForm__backButton' color="primary">
                 🠔
             </Fab>
         </div>

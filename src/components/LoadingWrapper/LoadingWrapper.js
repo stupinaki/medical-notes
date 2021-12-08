@@ -1,16 +1,16 @@
 import React from 'react';
 import {useDoctorsContext} from "../../contexts/DoctorsContext";
+import {useVisitsContext} from "../../contexts/VisitsContext";
 import './LoadingWrapper.css'
 
 
 function LoadingWrapper({children}) {
-    const { loading } = useDoctorsContext();
-    if (loading) {
+    const { loading: visitLoading } = useVisitsContext();
+    const { loading: doctorsLoading } = useDoctorsContext();
+    if (doctorsLoading || visitLoading) {
         return (
             <div className='loading'>
-                <div className="loading__inside">
-
-                </div>
+                <div className="loading__inside"/>
             </div>
         )
     }

@@ -1,17 +1,11 @@
 import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
-import {LocalStorage} from "../App/constants/localStorage";
 import {AppRoutes} from "../App/constants/routes";
 import './DoctorForm.css';
 import {Fab} from "@mui/material";
-import useDoctorsData from "../../hooks/useDoctorsData";
 import {useDoctorsContext} from "../../contexts/DoctorsContext";
 
-// function getDoctorsFromLS() {
-//     const doctorsStr = localStorage.getItem(LocalStorage.DOCTORS);
-//     const doctorsValue = JSON.parse(doctorsStr);
-//     return Array.isArray(doctorsValue) ? doctorsValue : [];
-// }
+
 function validateDoctorForm(value, doctors) {
     if (!value) {
         return '*Обязательное поле';

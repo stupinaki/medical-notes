@@ -1,22 +1,18 @@
 import React, {useContext} from "react";
-import useDoctorsData from "../hooks/useDoctorsData";
-import {useParams} from "react-router-dom";
+import useVisitsByAllDoctors from "../hooks/useVisitsByAllDoctors";
 
 const VisitsContext = React.createContext({});
 
 export function useVisitsContext() {
     const context = useContext(VisitsContext);
     if (context === undefined) {
-        throw new Error('ты дурачок')
+        throw new Error('Ошибка')
     }
     return context;
 }
 
 export function VisitsContextProvider({children}) {
-    const visitsData = useVisitsData();
-    const params = useParams();
-    console.log('VisitsContextProvider', {visitsData, params})
-
+    const visitsData = useVisitsByAllDoctors();
     return (
         <VisitsContext.Provider value={visitsData}>
             {children}
