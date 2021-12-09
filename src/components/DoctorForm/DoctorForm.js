@@ -2,7 +2,7 @@ import React from 'react';
 import {Link, useNavigate} from "react-router-dom";
 import {AppRoutes} from "../App/constants/routes";
 import './DoctorForm.css';
-import {Fab} from "@mui/material";
+import Fab from "../Fab/Fab";
 import {useDoctorsContext} from "../../contexts/DoctorsContext";
 
 

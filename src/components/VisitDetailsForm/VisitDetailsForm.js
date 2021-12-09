@@ -1,13 +1,14 @@
 import React, {useCallback, useState} from "react";
 import {VisitDetailsInput} from "./VisitDetailsInput/VisitDetailsInput";
 import './VisitDetailsForm.css';
-import {useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams, Link} from "react-router-dom";
 import {AppRoutes} from "../App/constants/routes";
 import {LocalStorage} from "../App/constants/localStorage";
-import {Fab} from "@mui/material";
+import Fab from "../Fab/Fab";
 
 export default function VisitDetailsForm() {
     const {id} = useParams();
+
     const navigate = useNavigate();
 
     const [value, setValue] = useState({});
@@ -89,9 +90,12 @@ export default function VisitDetailsForm() {
                     Сохранить
                 </button>
             </form>
-            <Fab className='visitDetailsForm__backButton' color="primary">
-                🠔
-            </Fab>
+
+            <Link to={AppRoutes.DOCTOR.replace(':id', id)}>
+                <Fab className='visitDetailsForm__backButton'>
+                    🠔
+                </Fab>
+            </Link>
         </div>
     )
 }

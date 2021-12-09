@@ -1,6 +1,6 @@
 import {Link, useNavigate} from "react-router-dom";
 import {AppRoutes} from "../App/constants/routes";
-import {Fab} from "@mui/material";
+import Fab from "../Fab/Fab";
 import React from "react";
 import {DoctorItem} from "./DoctorItem";
 import './Doctors.css'

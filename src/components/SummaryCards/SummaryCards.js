@@ -1,6 +1,6 @@
 import './SummaryCards.css';
 import React from "react";
-import {Fab, } from "@mui/material";
+import Fab from "../Fab/Fab";
 import {Link, useParams} from "react-router-dom";
 import {Card} from "./Card";
 import {AppRoutes} from "../App/constants/routes";
