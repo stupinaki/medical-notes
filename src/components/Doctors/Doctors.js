@@ -18,11 +18,10 @@ export default function Doctors() {
         <div className="Doctors">
             <div className="Doctors__wrapper">
                 {!doctors.length && (
-                    <div className="Doctors__welcome"> Привет! <br/> Добавь врачей</div>
+                    <div className="Doctors__welcome"> Добрый день! <br/> Вам необходимо добавить врачей</div>
                 )}
                 <div className='Doctors__list'>
                     {doctors.map(doctor => (
-                        /*по аналогии сделать с формой детелей посещения*/
                         <DoctorItem
                             key={doctor.value}
                             onClick={onClickHandle}

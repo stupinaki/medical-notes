@@ -7,16 +7,28 @@
     0 6px 10px 0 rgba(0, 0, 0, 0.14),
     0 1px 18px 0 rgba(0, 0, 0, 0.12);
     margin-bottom: 8px;
+    padding: 20px;
 }
-h3 {
+h4 {
     margin: 0;
-    color: rgb(25, 118, 210);
+    text-align: left;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    color: #827f7f;
+    border: 1px dotted darkgray;
+    background-color: #f5f4f4;
 }
 p {
     margin: 4px;
-    padding: 0 8px;
-    text-align: justify;
+    /*text-align: justify;*/
 }
 .card__delete {
-    padding-bottom: 8px;
+    padding: 4px;
+    font-size: 20px;
+    display: inline-flex;
+}
+
+.card__delete:hover {
+    background-color: rgba(25, 118, 210, 0.5);
+    cursor: pointer;
 }

@@ -18,19 +18,19 @@ export default function Card({visit, onDelete}) {
     return (
         <div className='card'>
             <div className="card__value">
-                <h3> Дата приёма</h3>
+                <h4> Дата приёма:</h4>
                 <p>{receiptDate}</p>
-                <h3> ФИО врача</h3>
+                <h4> ФИО врача:</h4>
                 <p>{doctorName}</p>
-                <h3> Адрес клиники</h3>
+                <h4> Адрес клиники:</h4>
                 <p> {addressClinic}</p>
-                <h3> Наименование клиники</h3>
+                <h4> Наименование клиники:</h4>
                 <p>{clinicName}</p>
-                <h3> Анализы</h3>
+                <h4> Анализы:</h4>
                 <p>{analyzes}</p>
-                <h3> Диагноз</h3>
+                <h4> Диагноз:</h4>
                 <p>{diagnosis}</p>
-                <h3> Лечение</h3>
+                <h4> Лечение:</h4>
                 <p>{treatment}</p>
             </div>
 

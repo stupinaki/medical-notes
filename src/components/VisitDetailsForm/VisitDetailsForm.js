@@ -42,6 +42,7 @@ export default function VisitDetailsForm() {
                     value={value.receiptDate}
                     onChange={handleChange}
                     placeholder={'Введите дату приема'}
+                    type={'date'}
                 />
                 <br/>
                 <VisitDetailsInput

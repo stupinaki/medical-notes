@@ -31,6 +31,7 @@ export default function useDoctorsData() {
     }, []);
 
     const deleteDoctor = React.useCallback(id => {
+
         setDoctors(doctors => {
             const result = doctors.filter(d => d.id !== id);
             localStorage.setItem(LocalStorage.DOCTORS, JSON.stringify(result));
