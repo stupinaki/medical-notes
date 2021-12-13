@@ -1,20 +1,31 @@
-.Doctors{
-    display: flex;
-    align-items: center;
-    min-height: 100%;
-}
 
-.Doctors__wrapper {
-    width: 80%;
+.doctors__wrapper {
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
 }
-.Doctors__list{
+.doctors__list{
     min-width: 100%;
 }
-.Doctors__fab {
+.doctors__fab {
     margin-top: 8px;
+    position: sticky;
+    bottom: 12px;
+}
+.list__title {
+    background-color: rgb(25, 118, 210);
+    border: none;
+    padding: 8px 10px;
+    border-radius: 2px;
+    color: rgb(255, 255, 255);
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
+    0 6px 10px 0 rgba(0, 0, 0, 0.14),
+    0 1px 18px 0 rgba(0, 0, 0, 0.12);
+    z-index: 1;
+    min-width: 80%;
+    margin-bottom: 8px;
+    position: sticky;
+    top: 0;
 }

@@ -1,8 +1,5 @@
 .card {
-    background-color: ghostwhite;
     border-radius: 2px;
-    border: none;
-    color: black;
     box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
     0 6px 10px 0 rgba(0, 0, 0, 0.14),
     0 1px 18px 0 rgba(0, 0, 0, 0.12);
@@ -16,11 +13,12 @@ h4 {
     padding-left: 8px;
     color: #827f7f;
     border: 1px dotted darkgray;
-    background-color: #f5f4f4;
 }
 p {
     margin: 4px;
-    /*text-align: justify;*/
+    text-align: justify;
+    /*border-bottom: 2px dotted darkgray;*/
+
 }
 .card__delete {
     padding: 4px;

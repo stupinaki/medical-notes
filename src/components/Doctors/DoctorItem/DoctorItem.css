@@ -1,7 +1,5 @@
 
-a. {
-    text-decoration: none;
-}
+
 .doctorItem {
     padding: 4px;
     border: solid 1px black;
@@ -9,6 +7,8 @@ a. {
     display: flex;
     flex-direction: row;
     width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
 }
 
 .doctorItem__delete {

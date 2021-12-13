@@ -6,6 +6,7 @@ import {DoctorItem} from "./DoctorItem";
 import './Doctors.css'
 import {useDoctorsContext} from "../../contexts/DoctorsContext";
 
+
 export default function Doctors() {
     const {doctors, deleteDoctor} = useDoctorsContext();
     const navigate = useNavigate();
@@ -15,12 +16,14 @@ export default function Doctors() {
     );
 
     return (
-        <div className="Doctors">
-            <div className="Doctors__wrapper">
+        <div className="doctors">
+            <div className="doctors__wrapper">
                 {!doctors.length && (
-                    <div className="Doctors__welcome"> Добрый день! <br/> Вам необходимо добавить врачей</div>
+                    <div className="doctors__welcome"> Добрый день! <br/> Вам необходимо добавить врачей</div>
                 )}
-                <div className='Doctors__list'>
+
+                <div className={'list__title'}> Общий список врачей</div>
+                <div className='doctors__list'>
                     {doctors.map(doctor => (
                         <DoctorItem
                             key={doctor.value}
@@ -30,7 +33,7 @@ export default function Doctors() {
                         />
                     ))}
                 </div>
-                <div className='Doctors__fab'>
+                <div className='doctors__fab'>
                     <Link to={AppRoutes.DOCTOR_FORM}>
                         <Fab color="primary" aria-label="add">
                             +

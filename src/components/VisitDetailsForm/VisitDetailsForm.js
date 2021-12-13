@@ -43,6 +43,7 @@ export default function VisitDetailsForm() {
                     onChange={handleChange}
                     placeholder={'Введите дату приема'}
                     type={'date'}
+                    autoFocus={true}
                 />
                 <br/>
                 <VisitDetailsInput
