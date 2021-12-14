@@ -5,12 +5,14 @@ import './LoadingWrapper.css'
 
 
 function LoadingWrapper({children}) {
-    const { loading: visitLoading } = useVisitsContext();
-    const { loading: doctorsLoading } = useDoctorsContext();
+    const {loading: visitLoading} = useVisitsContext();
+    const {loading: doctorsLoading} = useDoctorsContext();
     if (doctorsLoading || visitLoading) {
         return (
-            <div className='loading'>
-                <div className="loading__inside"/>
+            <div loading__wrapper>
+                <div className='loading__outside'>
+                    <div className="loading__inside"/>
+                </div>
             </div>
         )
     }

@@ -5,6 +5,7 @@ import React from "react";
 import {DoctorItem} from "./DoctorItem";
 import './Doctors.css'
 import {useDoctorsContext} from "../../contexts/DoctorsContext";
+import {CSSTransition, TransitionGroup} from 'react-transition-group';
 
 
 export default function Doctors() {
@@ -15,24 +16,47 @@ export default function Doctors() {
         [navigate]
     );
 
+    if (!doctors.length) {
+        return (
+            <div className="welcomePage">
+                {!doctors.length && (
+                    <div className="welcomePage__welcome"> Добрый день! <br/> Вам необходимо добавить врачей</div>
+                )}
+                <div className='welcomePage__fab'>
+                    <Link to={AppRoutes.DOCTOR_FORM}>
+                        <Fab color="primary" aria-label="add">
+                            +
+                        </Fab>
+                    </Link>
+                </div>
+
+            </div>
+        );
+
+    }
     return (
         <div className="doctors">
             <div className="doctors__wrapper">
-                {!doctors.length && (
-                    <div className="doctors__welcome"> Добрый день! <br/> Вам необходимо добавить врачей</div>
-                )}
-
                 <div className={'list__title'}> Общий список врачей</div>
-                <div className='doctors__list'>
+                <TransitionGroup
+                    component={'div'}
+                    className="doctors__list"
+                >
                     {doctors.map(doctor => (
-                        <DoctorItem
-                            key={doctor.value}
-                            onClick={onClickHandle}
-                            doctor={doctor}
-                            onDelete={deleteDoctor}
-                        />
+                        <CSSTransition
+                            key={doctor.id}
+                            timeout={500}
+                            classNames="list__doctor"
+                        >
+                            <DoctorItem
+                                key={doctor.value}
+                                onClick={onClickHandle}
+                                doctor={doctor}
+                                onDelete={deleteDoctor}
+                            />
+                        </CSSTransition>
                     ))}
-                </div>
+                </TransitionGroup>
                 <div className='doctors__fab'>
                     <Link to={AppRoutes.DOCTOR_FORM}>
                         <Fab color="primary" aria-label="add">
@@ -44,3 +68,6 @@ export default function Doctors() {
         </div>
     );
 }
+
+
+

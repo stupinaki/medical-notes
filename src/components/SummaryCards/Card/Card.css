@@ -18,15 +18,14 @@ p {
     margin: 4px;
     text-align: justify;
     /*border-bottom: 2px dotted darkgray;*/
-
 }
 .card__delete {
     padding: 4px;
-    font-size: 20px;
     display: inline-flex;
+    border-radius: 50%;
 }
 
 .card__delete:hover {
-    background-color: rgba(25, 118, 210, 0.5);
+    background-color: rgba(25, 118, 210, 0.2);
     cursor: pointer;
 }

@@ -1,5 +1,7 @@
 import './Card.css';
 import React from "react";
+import {ReactComponent as TrashBin} from "../../../icons/trash-2.svg";
+
 
 /**
  * плашка с 1 посещением
@@ -41,7 +43,7 @@ export default function Card({visit, onDelete}) {
                     onDelete(visit.id)
                 }}
             >
-                🗑
+                <TrashBin className={'delete__icon'}/>
             </div>
         </div>
     )

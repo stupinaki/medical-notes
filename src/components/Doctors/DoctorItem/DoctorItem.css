@@ -8,16 +8,15 @@
     flex-direction: row;
     width: 100%;
     cursor: pointer;
-    box-sizing: border-box;
 }
 
 .doctorItem__delete {
-    background-color: ghostwhite;
     padding: 0 4px;
-    font-size: 20px;
+    border-radius: 50%;
 }
-.doctorItem__delete:hover {
-    background-color: rgba(25, 118, 210, 0.5);
+
+.doctorItem__delete:hover{
+    background-color: rgba(25, 118, 210, 0.2);
     cursor: pointer;
 }
 .doctorItem__value {
