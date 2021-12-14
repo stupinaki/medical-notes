@@ -1,22 +1,23 @@
 {
   "files": {
-    "main.css": "/medical-notes/static/css/main.9b3efef4.chunk.css",
-    "main.js": "/medical-notes/static/js/main.85da296b.chunk.js",
-    "main.js.map": "/medical-notes/static/js/main.85da296b.chunk.js.map",
-    "runtime-main.js": "/medical-notes/static/js/runtime-main.7a324f05.js",
-    "runtime-main.js.map": "/medical-notes/static/js/runtime-main.7a324f05.js.map",
-    "static/js/2.e02229f5.chunk.js": "/medical-notes/static/js/2.e02229f5.chunk.js",
-    "static/js/2.e02229f5.chunk.js.map": "/medical-notes/static/js/2.e02229f5.chunk.js.map",
-    "static/js/3.02532941.chunk.js": "/medical-notes/static/js/3.02532941.chunk.js",
-    "static/js/3.02532941.chunk.js.map": "/medical-notes/static/js/3.02532941.chunk.js.map",
+    "main.css": "/medical-notes/static/css/main.14118139.chunk.css",
+    "main.js": "/medical-notes/static/js/main.210d562a.chunk.js",
+    "main.js.map": "/medical-notes/static/js/main.210d562a.chunk.js.map",
+    "runtime-main.js": "/medical-notes/static/js/runtime-main.29abcafe.js",
+    "runtime-main.js.map": "/medical-notes/static/js/runtime-main.29abcafe.js.map",
+    "static/js/2.2eb59226.chunk.js": "/medical-notes/static/js/2.2eb59226.chunk.js",
+    "static/js/2.2eb59226.chunk.js.map": "/medical-notes/static/js/2.2eb59226.chunk.js.map",
+    "static/js/3.9a24c074.chunk.js": "/medical-notes/static/js/3.9a24c074.chunk.js",
+    "static/js/3.9a24c074.chunk.js.map": "/medical-notes/static/js/3.9a24c074.chunk.js.map",
     "index.html": "/medical-notes/index.html",
-    "static/css/main.9b3efef4.chunk.css.map": "/medical-notes/static/css/main.9b3efef4.chunk.css.map",
-    "static/js/2.e02229f5.chunk.js.LICENSE.txt": "/medical-notes/static/js/2.e02229f5.chunk.js.LICENSE.txt"
+    "static/css/main.14118139.chunk.css.map": "/medical-notes/static/css/main.14118139.chunk.css.map",
+    "static/js/2.2eb59226.chunk.js.LICENSE.txt": "/medical-notes/static/js/2.2eb59226.chunk.js.LICENSE.txt",
+    "static/media/trash-2.bba7f8a9.svg": "/medical-notes/static/media/trash-2.bba7f8a9.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.7a324f05.js",
-    "static/js/2.e02229f5.chunk.js",
-    "static/css/main.9b3efef4.chunk.css",
-    "static/js/main.85da296b.chunk.js"
+    "static/js/runtime-main.29abcafe.js",
+    "static/js/2.2eb59226.chunk.js",
+    "static/css/main.14118139.chunk.css",
+    "static/js/main.210d562a.chunk.js"
   ]
 }
