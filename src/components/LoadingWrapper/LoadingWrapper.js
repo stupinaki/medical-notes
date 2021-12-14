@@ -9,7 +9,7 @@ function LoadingWrapper({children}) {
     const {loading: doctorsLoading} = useDoctorsContext();
     if (doctorsLoading || visitLoading) {
         return (
-            <div loading__wrapper>
+            <div className={'loading__wrapper'}>
                 <div className='loading__outside'>
                     <div className="loading__inside"/>
                 </div>

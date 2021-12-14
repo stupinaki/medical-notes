@@ -23,6 +23,7 @@ p {
     padding: 4px;
     display: inline-flex;
     border-radius: 50%;
+    opacity: 0.6;
 }
 
 .card__delete:hover {
