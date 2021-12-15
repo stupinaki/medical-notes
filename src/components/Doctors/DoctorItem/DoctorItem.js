@@ -1,10 +1,15 @@
 import React from "react";
+import {ReactComponent as TrashBin} from "../../../icons/trash-2.svg";
 import './DoctorItem.css';
 
 /**
  * плашка с 1 врачем
  */
+
+
 export default function DoctorItem({doctor, onClick, onDelete}) {
+
+    // todo change 'wrapper' class name
     return (
         <div className='wrapper'>
             <div
@@ -18,10 +23,10 @@ export default function DoctorItem({doctor, onClick, onDelete}) {
                     className='doctorItem__delete'
                     onClick={(e) => {
                         e.stopPropagation();
-                        onDelete(doctor.id);
+                        setTimeout(onDelete(doctor.id), 5000);
                     }}
                 >
-                    🗑
+                    <TrashBin className={'delete__icon'}/>
                 </div>
             </div>
 

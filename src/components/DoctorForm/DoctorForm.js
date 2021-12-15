@@ -50,6 +50,7 @@ export default function DoctorForm() {
                     className='doctorForm__input'
                     placeholder="Введите врача"
                     name="doctorName"
+                    autoFocus={true}
                 />
                 <div className='doctorForm__message'>
                     {message}
@@ -59,7 +60,7 @@ export default function DoctorForm() {
                 </button>
                 <div className='doctorForm__back'>
                     <Link to={AppRoutes.DOCTORS}>
-                        <Fab color="primary" aria-label="add" className='back__fab'>
+                        <Fab color="primary"  className='back__fab'>
                             🠔
                         </Fab>
                     </Link>

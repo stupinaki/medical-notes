@@ -5,16 +5,19 @@ import {useNavigate, useParams, Link} from "react-router-dom";
 import {AppRoutes} from "../App/constants/routes";
 import {LocalStorage} from "../App/constants/localStorage";
 import Fab from "../Fab/Fab";
+import useVisitsByAllDoctors from "../../hooks/useVisitsByAllDoctors";
+import {useVisitsContext} from "../../contexts/VisitsContext";
 
 export default function VisitDetailsForm() {
     const {id} = useParams();
-
+    const {updateVisitsByAllDoctors} = useVisitsContext();
     const navigate = useNavigate();
 
     const [value, setValue] = useState({});
     const handleChange = useCallback((name, text) => {
         setValue(currentValue => ({...currentValue, [name]: text}));
     }, [setValue]);
+
 
     const handleSubmit = React.useCallback((e) => {
         e.preventDefault();
@@ -27,12 +30,11 @@ export default function VisitDetailsForm() {
         const newDetail = {id: maxId + 1, ...value};
         const result = {...details, [id]: [...doctorDetails, newDetail]};
 
-
-        localStorage.setItem(LocalStorage.DETAILS, JSON.stringify(result));
+        updateVisitsByAllDoctors(result)
         navigate(AppRoutes.DOCTOR.replace(':id', id));
 
-
     }, [navigate, value, id])
+
 
     return (
         <div className="visitDetailsForm">
@@ -42,6 +44,8 @@ export default function VisitDetailsForm() {
                     value={value.receiptDate}
                     onChange={handleChange}
                     placeholder={'Введите дату приема'}
+                    type={'date'}
+                    autoFocus={true}
                 />
                 <br/>
                 <VisitDetailsInput

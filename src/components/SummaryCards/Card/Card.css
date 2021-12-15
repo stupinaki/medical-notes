@@ -1,22 +1,32 @@
 .card {
-    background-color: ghostwhite;
     border-radius: 2px;
-    border: none;
-    color: black;
     box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.2),
     0 6px 10px 0 rgba(0, 0, 0, 0.14),
     0 1px 18px 0 rgba(0, 0, 0, 0.12);
     margin-bottom: 8px;
+    padding: 20px;
 }
-h3 {
+.value__title {
     margin: 0;
-    color: rgb(25, 118, 210);
+    text-align: left;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    color: #827f7f;
 }
-p {
+.value__text {
     margin: 4px;
-    padding: 0 8px;
     text-align: justify;
+    border: 1px dotted darkgray;
+    padding: 4px;
 }
 .card__delete {
-    padding-bottom: 8px;
+    padding: 4px;
+    display: inline-flex;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.card__delete:hover {
+    background-color: rgba(25, 118, 210, 0.2);
+    cursor: pointer;
 }

@@ -6,7 +6,6 @@ import {LocalStorage} from "../components/App/constants/localStorage";
 export default function useVisitsByAllDoctors() {
     const [loading, setLoading] = React.useState(true);
     const [visitsByAllDoctors, setVisitsByAllDoctors] = React.useState({});
-
     const getVisitsByAllDoctors = React.useCallback(() => {
         const visitsStr = localStorage.getItem(LocalStorage.DETAILS);
         try {
@@ -21,7 +20,6 @@ export default function useVisitsByAllDoctors() {
         setVisitsByAllDoctors(visits);
         localStorage.setItem(localStorage.DETAILS, JSON.stringify(visits));
     }, []);
-
     React.useEffect( () => {
         const fn = async () => {
             await delay(getVisitsByAllDoctors, 1000)

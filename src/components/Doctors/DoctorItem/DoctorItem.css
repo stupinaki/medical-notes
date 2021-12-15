@@ -1,7 +1,5 @@
 
-a. {
-    text-decoration: none;
-}
+
 .doctorItem {
     padding: 4px;
     border: solid 1px black;
@@ -9,14 +7,17 @@ a. {
     display: flex;
     flex-direction: row;
     width: 100%;
+    cursor: pointer;
 }
 
 .doctorItem__delete {
-    background-color: ghostwhite;
     padding: 0 4px;
+    border-radius: 50%;
+    opacity: 0.6;
 }
-.doctorItem__delete:hover {
-    background-color: rgba(25, 118, 210, 0.5);
+
+.doctorItem__delete:hover{
+    background-color: rgba(25, 118, 210, 0.2);
     cursor: pointer;
 }
 .doctorItem__value {

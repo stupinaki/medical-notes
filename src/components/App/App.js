@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import { Routes, Route, HashRouter} from "react-router-dom";
 import {VisitDetailsForm} from "../VisitDetailsForm";
 import {DoctorForm} from "../DoctorForm";
 import {AppRoutes} from "./constants/routes";
@@ -15,25 +15,22 @@ function App() {
 
     return (
         <div className="App">
-            <BrowserRouter>
+            <HashRouter>
                 <DoctorsContextProvider>
                     <VisitsContextProvider>
                         <LoadingWrapper>
                             <Routes>
-                                <Route path={AppRoutes.DOCTOR_VISIT_FORM} element={<VisitDetailsForm/>}/>
-                                {/*<Route path={AppRoutes.LIST_OF_DOCTORS} element={<ListOfDoctors/>}/>*/}
-                                {/*<Route path={AppRoutes.SUMMARY_CARDS} element={<SummaryCards/>}/>*/}
-
-                                <Route path={AppRoutes.DOCTOR} element={<SummaryCards/>}/>
-                                <Route path={AppRoutes.DOCTOR_FORM} element={<DoctorForm/>}/>
-                                <Route path={AppRoutes.DOCTORS} element={<Doctors/>}/>
+                                <Route exact path={AppRoutes.DOCTOR_VISIT_FORM} element={<VisitDetailsForm/>}/>
+                                <Route exact path={AppRoutes.DOCTOR} element={<SummaryCards/>}/>
+                                <Route exact path={AppRoutes.DOCTOR_FORM} element={<DoctorForm/>}/>
+                                <Route exact path={AppRoutes.DOCTORS} element={<Doctors/>}/>
                                 <Route path="*" element={<NotFoundPage/>}/>
                             </Routes>
                         </LoadingWrapper>
                     </VisitsContextProvider>
                 </DoctorsContextProvider>
 
-            </BrowserRouter>
+            </HashRouter>
         </div>
 
     );
