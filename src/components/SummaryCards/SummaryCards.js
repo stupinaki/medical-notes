@@ -13,6 +13,7 @@ export default function SummaryCards() {
     const doctor = useDoctorData();
     //todo implement
     const onDeleteHandle = React.useCallback(() => console.log('deleted!'), []);
+
     return (
         <div className='wrapper'>
             <div className= 'SummaryCards'>
@@ -20,6 +21,7 @@ export default function SummaryCards() {
                     {doctor?.value.toUpperCase()}
                 </div>
                 <div className= 'SummaryCards__cards'>
+
                     {doctorVisits.map(visit => (
                         <Card
                             key={visit.id}

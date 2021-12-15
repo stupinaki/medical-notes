@@ -6,18 +6,18 @@
     margin-bottom: 8px;
     padding: 20px;
 }
-h4 {
+.value__title {
     margin: 0;
     text-align: left;
     padding-bottom: 4px;
     padding-left: 8px;
     color: #827f7f;
-    border: 1px dotted darkgray;
 }
-p {
+.value__text {
     margin: 4px;
     text-align: justify;
-    /*border-bottom: 2px dotted darkgray;*/
+    border: 1px dotted darkgray;
+    padding: 4px;
 }
 .card__delete {
     padding: 4px;
