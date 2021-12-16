@@ -6,13 +6,19 @@ import {Card} from "./Card";
 import {AppRoutes} from "../App/constants/routes";
 import {useDoctorData} from "../../hooks/useDoctorData";
 import {useVisitsByDoctor} from "../../hooks/useVisit";
+import {useVisitsContext} from "../../contexts/VisitsContext";
 
 export default function SummaryCards() {
     const { id } = useParams();
     const doctorVisits = useVisitsByDoctor(id);
     const doctor = useDoctorData();
-    //todo implement
-    const onDeleteHandle = React.useCallback(() => console.log('deleted!'), []);
+    const { updateVisitsByOneDoctor } = useVisitsContext();
+
+    const onDeleteHandle = React.useCallback((visitId) => {
+        const newVisitsByOneDoctor = doctorVisits.filter(visit => visit.id !== visitId);
+        updateVisitsByOneDoctor(id, newVisitsByOneDoctor);
+
+    }, [doctorVisits, updateVisitsByOneDoctor, id]);
 
     return (
         <div className='wrapper'>

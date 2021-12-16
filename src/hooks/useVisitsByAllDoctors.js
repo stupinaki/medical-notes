@@ -18,8 +18,16 @@ export default function useVisitsByAllDoctors() {
 
     const updateVisitsByAllDoctors = React.useCallback(visits => {
         setVisitsByAllDoctors(visits);
-        localStorage.setItem(localStorage.DETAILS, JSON.stringify(visits));
+        localStorage.setItem(LocalStorage.DETAILS, JSON.stringify(visits));
     }, []);
+
+    const updateVisitsByOneDoctor = React.useCallback((doctorId, visits) => {
+        updateVisitsByAllDoctors({
+            ...visitsByAllDoctors,
+            [doctorId]: visits
+        });
+    }, [visitsByAllDoctors, updateVisitsByAllDoctors]);
+
     React.useEffect( () => {
         const fn = async () => {
             await delay(getVisitsByAllDoctors, 1000)
@@ -37,8 +45,9 @@ export default function useVisitsByAllDoctors() {
             visitsByAllDoctors,
             loading,
             updateVisitsByAllDoctors,
+            updateVisitsByOneDoctor,
         }),
-        [visitsByAllDoctors, loading, updateVisitsByAllDoctors]
+        [visitsByAllDoctors, loading, updateVisitsByAllDoctors, updateVisitsByOneDoctor]
     );
 }
 

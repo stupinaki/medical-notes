@@ -5,7 +5,6 @@ import {useNavigate, useParams, Link} from "react-router-dom";
 import {AppRoutes} from "../App/constants/routes";
 import {LocalStorage} from "../App/constants/localStorage";
 import Fab from "../Fab/Fab";
-import useVisitsByAllDoctors from "../../hooks/useVisitsByAllDoctors";
 import {useVisitsContext} from "../../contexts/VisitsContext";
 
 export default function VisitDetailsForm() {
@@ -33,7 +32,7 @@ export default function VisitDetailsForm() {
         updateVisitsByAllDoctors(result)
         navigate(AppRoutes.DOCTOR.replace(':id', id));
 
-    }, [navigate, value, id])
+    }, [navigate, value, id, updateVisitsByAllDoctors])
 
 
     return (
