@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/medical-notes/static/css/main.1ea7f0fe.chunk.css",
-    "main.js": "/medical-notes/static/js/main.637246d0.chunk.js",
-    "main.js.map": "/medical-notes/static/js/main.637246d0.chunk.js.map",
+    "main.js": "/medical-notes/static/js/main.00816616.chunk.js",
+    "main.js.map": "/medical-notes/static/js/main.00816616.chunk.js.map",
     "runtime-main.js": "/medical-notes/static/js/runtime-main.29abcafe.js",
     "runtime-main.js.map": "/medical-notes/static/js/runtime-main.29abcafe.js.map",
-    "static/js/2.28c0e26d.chunk.js": "/medical-notes/static/js/2.28c0e26d.chunk.js",
-    "static/js/2.28c0e26d.chunk.js.map": "/medical-notes/static/js/2.28c0e26d.chunk.js.map",
+    "static/js/2.de4bbb7b.chunk.js": "/medical-notes/static/js/2.de4bbb7b.chunk.js",
+    "static/js/2.de4bbb7b.chunk.js.map": "/medical-notes/static/js/2.de4bbb7b.chunk.js.map",
     "static/js/3.9a24c074.chunk.js": "/medical-notes/static/js/3.9a24c074.chunk.js",
     "static/js/3.9a24c074.chunk.js.map": "/medical-notes/static/js/3.9a24c074.chunk.js.map",
     "index.html": "/medical-notes/index.html",
     "static/css/main.1ea7f0fe.chunk.css.map": "/medical-notes/static/css/main.1ea7f0fe.chunk.css.map",
-    "static/js/2.28c0e26d.chunk.js.LICENSE.txt": "/medical-notes/static/js/2.28c0e26d.chunk.js.LICENSE.txt",
+    "static/js/2.de4bbb7b.chunk.js.LICENSE.txt": "/medical-notes/static/js/2.de4bbb7b.chunk.js.LICENSE.txt",
     "static/media/trash-2.bba7f8a9.svg": "/medical-notes/static/media/trash-2.bba7f8a9.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.29abcafe.js",
-    "static/js/2.28c0e26d.chunk.js",
+    "static/js/2.de4bbb7b.chunk.js",
     "static/css/main.1ea7f0fe.chunk.css",
-    "static/js/main.637246d0.chunk.js"
+    "static/js/main.00816616.chunk.js"
   ]
 }
