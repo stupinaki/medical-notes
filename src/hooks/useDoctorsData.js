@@ -31,10 +31,18 @@ export default function useDoctorsData() {
     }, []);
 
     const deleteDoctor = React.useCallback(id => {
+        //работает, но не обновляет стейт, как результат если удалить всех врачей вместе с их деталями посещений
+        //а потом добавить новых и такими же id, то при открытии их карточек там отобразятся старые детали по старым врачам
+        //вероятно потому что хоть в localStorage мы данные и заменили, но стейт мы не обновляли
+        const visitsStr = localStorage.getItem(LocalStorage.DETAILS);
+        const visits = JSON.parse(visitsStr) || {};
+        const newVisits = Object.assign(visits);
+        delete newVisits[id];
 
         setDoctors(doctors => {
             const result = doctors.filter(d => d.id !== id);
             localStorage.setItem(LocalStorage.DOCTORS, JSON.stringify(result));
+            localStorage.setItem(LocalStorage.DETAILS, JSON.stringify(newVisits))
             return result;
         });
     }, []);

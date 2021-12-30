@@ -1,15 +1,21 @@
+import React, {useCallback} from "react";
 import {Link, useNavigate} from "react-router-dom";
-import {AppRoutes} from "../App/constants/routes";
-import Fab from "../Fab/Fab";
-import React from "react";
-import {DoctorItem} from "./DoctorItem";
-import './Doctors.css'
-import {useDoctorsContext} from "../../contexts/DoctorsContext";
 import {CSSTransition, TransitionGroup} from 'react-transition-group';
+import {useDoctorsContext} from "../../contexts/DoctorsContext";
+import {useVisitsContext} from "../../contexts/VisitsContext";
+import {AppRoutes} from "../App/constants/routes";
+import {DoctorItem} from "./DoctorItem";
+import Fab from "../Fab/Fab";
+import './Doctors.css'
 
 
 export default function Doctors() {
     const {doctors, deleteDoctor} = useDoctorsContext();
+    const {deleteVisitsByDoctorId} = useVisitsContext();
+    const handleDeleteDoctor = useCallback((id) => {
+        deleteDoctor(id);
+        deleteVisitsByDoctorId(id)
+    }, [deleteVisitsByDoctorId, deleteDoctor])
     const navigate = useNavigate();
     const onClickHandle = React.useCallback((id) =>
             navigate(AppRoutes.DOCTOR.replace(':id', id)),
@@ -19,9 +25,7 @@ export default function Doctors() {
     if (!doctors.length) {
         return (
             <div className="welcomePage">
-                {!doctors.length && (
                     <div className="welcomePage__welcome"> Добрый день! <br/> Вам необходимо добавить врачей</div>
-                )}
                 <div className='welcomePage__fab'>
                     <Link to={AppRoutes.DOCTOR_FORM}>
                         <Fab color="primary" aria-label="add">
@@ -52,7 +56,7 @@ export default function Doctors() {
                                 key={doctor.value}
                                 onClick={onClickHandle}
                                 doctor={doctor}
-                                onDelete={deleteDoctor}
+                                onDelete={handleDeleteDoctor}
                             />
                         </CSSTransition>
                     ))}

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useCallback} from "react";
 import delay from "../function/delay";
 import {LocalStorage} from "../components/App/constants/localStorage";
 
@@ -28,6 +28,10 @@ export default function useVisitsByAllDoctors() {
         });
     }, [visitsByAllDoctors, updateVisitsByAllDoctors]);
 
+    const deleteVisitsByDoctorId = useCallback((doctorId) => {
+        updateVisitsByAllDoctors({ ...visitsByAllDoctors, [doctorId]: [] })
+    }, [updateVisitsByAllDoctors, visitsByAllDoctors]);
+
     React.useEffect( () => {
         const fn = async () => {
             await delay(getVisitsByAllDoctors, 1000)
@@ -44,10 +48,11 @@ export default function useVisitsByAllDoctors() {
         () => ({
             visitsByAllDoctors,
             loading,
-            updateVisitsByAllDoctors,
+            deleteVisitsByDoctorId,
             updateVisitsByOneDoctor,
+            updateVisitsByAllDoctors,
         }),
-        [visitsByAllDoctors, loading, updateVisitsByAllDoctors, updateVisitsByOneDoctor]
+        [visitsByAllDoctors, loading, updateVisitsByAllDoctors, updateVisitsByOneDoctor, deleteVisitsByDoctorId]
     );
 }
 

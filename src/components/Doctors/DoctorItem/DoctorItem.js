@@ -2,10 +2,6 @@ import React from "react";
 import {ReactComponent as TrashBin} from "../../../icons/trash-2.svg";
 import './DoctorItem.css';
 
-/**
- * плашка с 1 врачем
- */
-
 
 export default function DoctorItem({doctor, onClick, onDelete}) {
 
